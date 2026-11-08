@@ -1,0 +1,16 @@
+# LiteLLM gateway: exposes Claude Haiku 5.5 on an OpenAI-compatible endpoint
+# (http://localhost:4000/v1) under the model name Auto Ontology expects.
+#
+# Why this name: Auto Ontology sends the model name unchanged. The `azure/`
+# prefix routes it through its OpenAI client, and "claude" in the name switches
+# on its built-in Claude handling (tool-calling for structured output). This is
+# the naming its maintainers use on NVIDIA's internal gateway.
+#
+# Start:  uvx --from 'litellm[proxy]' litellm --config config/litellm.yaml --port 4000
+# Needs:  ANTHROPIC_API_KEY and LITELLM_MASTER_KEY in the environment.
+#         Recent LiteLLM versions refuse to start without a master key.
+model_list:
+  - model_name: azure/anthropic/claude-haiku-5-5
+    litellm_params:
+      model: anthropic/claude-haiku-5-5
+      api_key: os.environ/ANTHROPIC_API_KEY
