@@ -82,7 +82,7 @@ All configuration is through environment variables and external services. See [`
    python analysis/chart.py   results/results.json results/bird_auto_ontology_results.png
    ```
 
-**Total API cost:** about $10, of which about $7.40 was the 500-question benchmark. The rest went on two ontology builds and smoke tests.
+**Total API cost:** $7.72, of which about $7.30 was the 500-question benchmark. The rest went on two ontology builds and smoke tests.
 
 ### Practical notes from getting it running
 
